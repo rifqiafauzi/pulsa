@@ -12,13 +12,15 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
+  <center> 
+      <h3>Melati sel</h3>
+</center>
   <a href="{{ route('pulsa.create')}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Tambah Data</button>
                 </a>
-  <table class="table table-striped">
-    <thead>
+  <table class="table table-striped table-bordered">
         <tr>
           <td>ID</td>
           <td>Nomor</td>
@@ -34,13 +36,13 @@
             <td>{{$pulsa->nomber}}</td>
             <td>{{$pulsa->provider}}</td>
             <td>{{$pulsa->nominal}}</td>
-            <td><a href="{{ route('pulsa.edit',$pulsa->id)}}" class="btn btn-primary">Edit</a>
-            
-                <a href="{{ route('pulsa.destroy', $pulsa->id)}}" method="post">
+            <td><a href="{{ route('pulsa.edit',$pulsa->id)}}" class="btn btn-primary">Edit</a></td>
+            <td>
+                <form action="{{ route('pulsa.destroy', $pulsa->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
-                </a>
+            </form>
             </td>
         </tr>
         @endforeach

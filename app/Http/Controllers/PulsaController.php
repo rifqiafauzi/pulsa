@@ -97,9 +97,9 @@ class PulsaController extends Controller
      */
     public function destroy($id)
     {
-        $pulsa = Pulsa::findOrFail($id);
+        $pulsa = pulsa::findOrFail($id);
         $pulsa->delete();
 
-        return redirect('/pulsa')->with('success', 'Data is successfully deleted');
+        return redirect('pulsa')->with('success', 'Data is successfully deleted');
     }
 }
